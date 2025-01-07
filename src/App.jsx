@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AppCard from './AppCard';
 import Modal from './Modal';
-import Notifications from './Notifications';
+import Notifications from '../components/Notifications';
 
 function App() {
   const [apps, setApps] = useState([]);
