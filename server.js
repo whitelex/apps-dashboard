@@ -63,7 +63,7 @@ app.post('/api/apps', async (req, res) => {
   }
 });
 
-app.post('/notification/app=:name', async (req, res) => {
+app.post('/api/notification/app=:name', async (req, res) => {
   const { name } = req.params;
   const { notification, time, text } = req.body;
 
