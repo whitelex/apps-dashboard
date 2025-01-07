@@ -202,14 +202,24 @@ body {
 }
 
 .notification {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0.8rem;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 0.5rem;
   border-radius: 5px;
   animation: slideIn 0.3s ease-out;
+}
+
+.notification:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.notification-badge {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  margin-left: 2.5rem;
 }
 
 @keyframes slideIn {
@@ -223,19 +233,25 @@ body {
   }
 }
 
+.notification-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:burlywood
+}
+
 .notification-content {
   flex-grow: 1;
 }
 
-.notification-time {
+.notification-header {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
   margin-left: 1rem;
 }
 
 .notification-text {
-  flex-grow: 2;
-  margin-left: 1rem;
+  margin-top: 0.5rem;
 }
 
 .close-button {

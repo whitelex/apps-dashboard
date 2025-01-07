@@ -1,23 +1,32 @@
 import React from 'react';
-import axios from 'axios';
 
 function Notifications({ apps, removeNotification }) {
   return (
     <div className="notifications-section">
       {apps.map((app, index) => (
-        <div key={index} className="notifications-group">
-          <div className="notifications-group-title">
-            {app.icon} {app.name}
-            <span className="notification-time">{new Date(app.createdAt).toLocaleString()}</span>
-          </div>
-          {app.notifications.map((notification, idx) => (
-            <div key={notification._id} className="notification">
-              <div className="notification-content">{notification.notification}</div>
-              <div className="notification-text">{notification.text}</div>
-              <button className="close-button" onClick={() => removeNotification(app.name, notification._id)}>❌</button>
+        app.notifications.length > 0 && (
+          <div key={index} className="notifications-group">
+            <div className="notifications-group-title">
+              {app.icon} {app.name}
             </div>
-          ))}
-        </div>
+            {app.notifications.map((notification, idx) => (
+              <div key={notification._id} className="notification">
+                <div className="notification-time">
+                  <div className="notification-content">
+                  {new Date(notification.time).toLocaleString()} 
+                    
+                  </div>
+                  <span className="notification-header">
+                  {notification.notification}<button className="close-button" onClick={() => removeNotification(app.name, notification._id)}>❌</button>
+                  </span>
+                </div>
+                <div className="notification-text">
+                  {notification.text}
+                </div>
+              </div>
+            ))}
+          </div>
+        )
       ))}
     </div>
   );
