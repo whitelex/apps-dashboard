@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     const fetchApps = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/apps`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/apps`);
         setApps(response.data);
       } catch (error) {
         console.error('Error fetching apps:', error);
@@ -40,7 +40,7 @@ function App() {
 
   const removeNotification = async (appName, notificationId) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/apps/${appName}/notifications/${notificationId}`);
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/apps/${appName}/notifications/${notificationId}`);
       const updatedApps = apps.map(app => {
         if (app.name === appName) {
           return {
